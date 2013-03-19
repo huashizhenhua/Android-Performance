@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.view.PagerAdapter;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -79,6 +81,8 @@ public class ImageViewActivity extends Activity {
 
         super.onCreate(savedInstanceState);
     }
+
+    
 
     @Override
     protected void onDestroy() {

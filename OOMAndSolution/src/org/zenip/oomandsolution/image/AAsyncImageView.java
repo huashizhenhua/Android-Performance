@@ -1,11 +1,11 @@
 package org.zenip.oomandsolution.image;
 
-import java.io.FileNotFoundException;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.Future;
 import java.util.concurrent.RejectedExecutionHandler;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+
 import android.content.Context;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
@@ -17,14 +17,21 @@ import android.widget.ImageView;
 
 public class AAsyncImageView extends ImageView {
     static ThreadPoolExecutor sExecutor = new ThreadPoolExecutor(5, 6, 30, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(100), new RejectedExecutionHandler() {
-
         @Override
         public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
-
         }
     });
 
+
+    private Future<?> mFuture;
+
+    private boolean mDisableUsingImageUri = false;;
     private Uri mImageUri;
+
+
+    public void setAsyncEnable(boolean b) {
+        mDisableUsingImageUri = !b;
+    }
 
     public AAsyncImageView(Context context) {
         super(context);
@@ -38,18 +45,17 @@ public class AAsyncImageView extends ImageView {
         super(context, attrs);
     }
 
-
-    private Future<?> mFuture;
-
-
-
     @Override
     public void setImageURI(final Uri uri) {
+
+        if (mDisableUsingImageUri) {
+            super.setImageURI(uri);
+            return;
+        }
+
         final Uri curImageUri = mImageUri;
         final AAsyncImageView me = this;
-
         setImageResource(android.R.drawable.ic_menu_gallery);
-
         if (uri == null || (!uri.equals(curImageUri))) {
 
             if (curImageUri != null) {
@@ -66,8 +72,6 @@ public class AAsyncImageView extends ImageView {
                 mFuture = sExecutor.submit(new Runnable() {
                     @Override
                     public void run() {
-
-
                         System.out.println("mFuture to thread pool");
                         final BitmapDrawable bd = ImageHelper.getBitmapDrawable(me.getContext(), uri);
                         System.out.println("mFuture to thread pool) = " + bd);
@@ -87,47 +91,6 @@ public class AAsyncImageView extends ImageView {
         mImageUri = uri;
     }
 
-    public void setImageURIToFitScreen(final Uri uri) {
-        final Uri curImageUri = mImageUri;
-        final AAsyncImageView me = this;
-
-        setImageResource(android.R.drawable.ic_menu_gallery);
-
-
-        if (uri == null || (!uri.equals(curImageUri))) {
-
-            if (curImageUri != null) {
-                // cancel load
-                final Future<?> future = mFuture;
-                if (future != null) {
-                    future.cancel(false);
-                    mFuture = null;
-                }
-            }
-
-            if (uri != null) {
-                // load new
-                mFuture = sExecutor.submit(new Runnable() {
-                    @Override
-                    public void run() {
-                        BitmapDrawable bd;
-                        bd = ImageHelper.getBitmapDrawableWithOutOOM(me.getContext(), uri);
-
-                        System.out.println("setImageURIToFitScreen to thread pool) = " + bd);
-                        if (bd != null) {
-                            Message msg = new Message();
-                            msg.what = 1;
-                            msg.obj = bd;
-                            mHandler.sendMessage(msg);
-                        }
-                        mFuture = null;
-                    }
-                });
-            }
-
-        }
-        mImageUri = uri;
-    }
 
     private Handler mHandler = new Handler(new Handler.Callback() {
         @Override

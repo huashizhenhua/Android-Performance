@@ -19,15 +19,14 @@ public class ImageCursorAdapter extends ResourceCursorAdapter {
         super(context, layout, c);
     }
 
+    public boolean isAsyncEnable = true;
+
     @Override
     public void bindView(View view, final Context context, Cursor cursor) {
         String str = cursor.getString(cursor.getColumnIndex(MediaStore.MediaColumns.DATA));
         final AAsyncImageView textView = (AAsyncImageView) view.findViewById(R.id.textview);
-        //        textView.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
-        //
-        //        System.out.println("bindView file path = " + str);
-        //
         final Uri uri = Uri.fromFile(new File(str));
+        textView.setAsyncEnable(isAsyncEnable);
         if (uri == null) {
             System.out.println("empty uri");
         }

@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.AdapterView;
@@ -17,15 +19,11 @@ public class ImageActivity extends Activity {
 
     private GridView mGrid;
     private Cursor mCursor;
-
-    private class ImageItem {
-
-    }
+    private ImageCursorAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED, WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
 
         mGrid = new GridView(this);
         mGrid.setLayoutParams(new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT));
@@ -34,10 +32,7 @@ public class ImageActivity extends Activity {
 
         ImageHelper helper = new ImageHelper();
         mCursor = helper.getImage(this);
-
-
-        final ImageCursorAdapter adapter = new ImageCursorAdapter(this, R.layout.grid_item_image_gallery, mCursor);
-
+        mAdapter = new ImageCursorAdapter(this, R.layout.grid_item_image_gallery, mCursor);
         mGrid.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
@@ -61,8 +56,33 @@ public class ImageActivity extends Activity {
         });
 
 
-        mGrid.setAdapter(adapter);
+        mGrid.setAdapter(mAdapter);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        menu.add(0, 1, 1, "同步加载");
+        menu.add(0, 2, 1, "异步加载，图片大小压缩，线程队列缓冲机制（未执行任务可取消）");
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        final ImageCursorAdapter adapter = mAdapter;
+        if (adapter != null) {
+            switch (item.getItemId()) {
+            case 1:
+                adapter.isAsyncEnable = false;
+                break;
+            case 2:
+                adapter.isAsyncEnable = true;
+                break;
+            default:
+                break;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
