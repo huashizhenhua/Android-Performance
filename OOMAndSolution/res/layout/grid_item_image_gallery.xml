@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Icons by www.androidicons.com -->
+<!--
+ - Performance analysis
+ - 
+ - Main Layout
+ - 
+ - Copyright (c) Thomas Gummerer 2011 | All rights reserved
+-->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" >
+
+    <org.zenip.oomandsolution.image.AAsyncImageView
+        android:id="@+id/textview"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:scaleType="centerCrop"
+        android:text="hello world" />
+
+</RelativeLayout>

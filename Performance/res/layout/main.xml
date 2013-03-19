@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Icons by www.androidicons.com -->
+<!--
+ - Performance analysis
+ - 
+ - Main Layout
+ - 
+ - Copyright (c) Thomas Gummerer 2011 | All rights reserved
+-->
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <TableLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:weightSum="1" >
+
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="22dp"
+            android:gravity="center"
+            android:text="@string/app_name"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/home_btn_start_tests"
+                style="@style/DashboardButton"
+                android:layout_width="150dp"
+                android:drawableTop="@drawable/starttests"
+                android:onClick="startTests"
+                android:text="@string/home_start_tests" />
+
+            <Button
+                android:id="@+id/home_btn_show_diagram"
+                style="@style/DashboardButton"
+                android:layout_width="150dp"
+                android:drawableTop="@drawable/diagram"
+                android:onClick="showDiagram"
+                android:text="@string/home_show_diagram" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/home_btn_export"
+                style="@style/DashboardButton"
+                android:layout_width="150dp"
+                android:drawableTop="@drawable/export"
+                android:onClick="exportData"
+                android:text="@string/home_export_data" />
+
+            <Button
+                android:id="@+id/home_btn_memtest"
+                style="@style/DashboardButton"
+                android:layout_width="150dp"
+                android:drawableTop="@drawable/diagram"
+                android:onClick="memTestDiagram"
+                android:text="@string/home_show_memtest_diagram" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/home_btn_show_stats"
+                style="@style/DashboardButton"
+                android:layout_width="150dp"
+                android:drawableTop="@drawable/show_stats"
+                android:onClick="showStats"
+                android:text="@string/home_show_stats" />
+
+            <Button
+                android:id="@+id/home_btn_show_diagram"
+                style="@style/DashboardButton"
+                android:layout_width="150dp"
+                android:drawableTop="@drawable/selecttests"
+                android:onClick="selectTests"
+                android:text="@string/select_tests" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/home_btn_monitor_applications"
+                style="@style/DashboardButton"
+                android:layout_width="150dp"
+                android:drawableTop="@drawable/monitor"
+                android:onClick="monitorApps"
+                android:text="@string/home_monitor_applications" />
+
+            <Button
+                android:id="@+id/home_btn_show_monitor_app_diagram"
+                style="@style/DashboardButton"
+                android:layout_width="150dp"
+                android:drawableTop="@drawable/diagram"
+                android:onClick="showMonitorDiagram"
+                android:text="@string/home_show_monitor_diagram" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/home_btn_monitor_applications"
+                style="@style/DashboardButton"
+                android:layout_width="150dp"
+                android:drawableTop="@drawable/monitor"
+                android:onClick="monitorApps"
+                android:text="@string/home_monitor_applications" />
+
+            <Button
+                android:id="@+id/home_btn_show_monitor_app_diagram"
+                style="@style/DashboardButton"
+                android:layout_width="150dp"
+                android:drawableTop="@drawable/diagram"
+                android:onClick="showMonitorDiagram"
+                android:text="@string/home_show_monitor_diagram" />
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center" >
+
+            <Button
+                android:id="@+id/userImageGrid"
+                style="@style/DashboardButton"
+                android:layout_width="150dp"
+                android:drawableTop="@drawable/monitor"
+                android:onClick="userImageGrid"
+                android:text="图片表格" />
+        </TableRow>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:gravity="center_horizontal|bottom"
+            android:text="@string/home_credit"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textSize="4pt" />
+    </TableLayout>
+
+</ScrollView>

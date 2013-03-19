@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--  
+ - Performance analysis
+ - 
+ - Strings (English)
+ - 
+ - Copyright (c) Thomas Gummerer 2011 | All rights reserved
+ -->
+<resources>
+    <string name="app_name">Performance Analysis</string>
+    <string name="home_start_tests">Start tests</string>
+    <string name="home_show_diagram">Show diagram</string>
+    <string name="home_monitor_applications">Monitor apps</string>
+    <string name="home_show_monitor_diagram">Show monitor diagram</string>
+    <string name="home_credit">Icons by www.androidicons.com</string>
+    <string name="home_export_data">Export data to SD card</string>
+    <string name="home_show_stats">Show statistics</string>
+    <string name="monitor_running">Running apps</string>
+    <string name="monitor_memusage">Memory usage</string>
+    <string name="appimportance">Importance</string>
+    <string name="dalvikpss">Dalvik Pss</string>
+    <string name="dalvikprivatedirty">Dalvik Private Dirty</string>
+    <string name="dalvikshareddirty">Dalvik Shared Dirty</string>
+    <string name="nativepss">Native Pss</string>
+    <string name="nativeprivatedirty">Native Private Dirty</string>
+    <string name="nativeshareddirty">Native Shared Dirty</string>
+    <string name="otherpss">Other Pss</string>
+    <string name="otherprivatedirty">Other Private Dirty</string>
+    <string name="othershareddirty">Other Shared Dirty</string>
+    <string name="monitorpss">Monitor Pss Usage</string>
+    <string name="monitorprivate">Monitor Private Mem Usage</string>
+    <string name="monitorshared">Monitor Shared Mem Usage</string>
+    <string name="avg_difference">Average difference</string>
+    <string name="max_difference">Maximum difference</string>
+    <string name="min_difference">Minimum difference</string>
+    <string name="select_tests">Select tests</string>
+    <string name="algorithm1">Algorithm 1: For loop with a division operation</string>
+    <string name="algorithm2">Algorithm 2: Random Quicksort</string>
+    <string name="algorithm3">Algorithm 3: Recursive function</string>
+    <string name="algorithm4">Algorithm 4: Algorithm with classes and pointers</string>
+    <string name="memtest">Memory test</string>
+    <string name="save">Save</string>
+    <string name="cancel">Cancel</string>
+    <string name="home_show_memtest_diagram">Show Memory test diagram</string>
+    <string name="statsdescription">Positive values mean that the C algorithm was faster, while negative values mean the Java algorithm was faster</string>
+    <string name="kb">kb</string>
+</resources>
