@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="timerLoopWithStrongRerference"
+        android:text="定时timer: 持有activity引用泄漏 。请转屏以泄漏10MB内存" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="timerLoopWithWeakReference"
+        android:text="定时timer: WeakRerference避免泄漏activity。请转屏不泄漏内存" />
+
+</LinearLayout>

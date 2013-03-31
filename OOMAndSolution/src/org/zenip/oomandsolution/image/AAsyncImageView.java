@@ -56,8 +56,7 @@ public class AAsyncImageView extends ImageView {
         final Uri curImageUri = mImageUri;
         final AAsyncImageView me = this;
         setImageResource(android.R.drawable.ic_menu_gallery);
-        if (uri == null || (!uri.equals(curImageUri))) {
-
+        if (uri != null) {
             if (curImageUri != null) {
                 // cancel load
                 final Future<?> future = mFuture;
